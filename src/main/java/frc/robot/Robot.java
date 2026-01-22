@@ -20,6 +20,7 @@ package frc.robot;
 import com.revrobotics.util.StatusLogger;
 import edu.wpi.first.apriltag.AprilTagFieldLayout;
 import edu.wpi.first.apriltag.AprilTagFields;
+import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Threads;
@@ -134,6 +135,7 @@ public class Robot extends LoggedRobot {
 
     // Return to normal thread priority
     Threads.setCurrentThreadPriority(false, 10);
+    Logger.recordOutput("ZeroedComponentPoses", new Pose3d[] {new Pose3d()});
   }
 
   /** This function is called once when the robot is disabled. */
