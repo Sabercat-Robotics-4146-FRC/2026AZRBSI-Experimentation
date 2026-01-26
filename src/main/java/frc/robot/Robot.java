@@ -22,6 +22,7 @@ import edu.wpi.first.apriltag.AprilTagFieldLayout;
 import edu.wpi.first.apriltag.AprilTagFields;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Threads;
 import edu.wpi.first.wpilibj.Timer;
@@ -136,6 +137,16 @@ public class Robot extends LoggedRobot {
     // Return to normal thread priority
     Threads.setCurrentThreadPriority(false, 10);
     Logger.recordOutput("ZeroedComponentPoses", new Pose3d[] {new Pose3d()});
+    Logger.recordOutput(
+        "FinalComponentPoses",
+        new Pose3d[] {
+          new Pose3d(
+              -0.892,
+              -0.24,
+              -0.7,
+              new Rotation3d(
+                  Math.toRadians(180), Math.sin(Timer.getTimestamp()) - 1.0, Math.toRadians(90)))
+        });
   }
 
   /** This function is called once when the robot is disabled. */
