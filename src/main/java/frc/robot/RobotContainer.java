@@ -204,7 +204,7 @@ public class RobotContainer {
 
       default:
         // Replayed robot, disable IO implementations
-        m_imu = new ImuIOSim();
+        m_imu = new ImuIOPigeon2();
         m_drivebase = new Drive(m_imu);
         m_flywheel = new Flywheel(new FlywheelIO() {});
         m_vision =
