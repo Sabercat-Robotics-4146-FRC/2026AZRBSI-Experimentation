@@ -151,7 +151,7 @@ public class Drive extends SubsystemBase {
           new DriveSimPhysics(
               kinematics,
               RobotConstants.kRobotMOI, // kg m^2
-              RobotConstants.kMaxWheelTorque); // Nm
+              -0.0); // Nm
     }
 
     // Usage reporting for swerve template

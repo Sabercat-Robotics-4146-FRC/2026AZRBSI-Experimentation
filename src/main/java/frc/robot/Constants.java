@@ -71,9 +71,9 @@ public final class Constants {
   //       under strict caveat emptor -- and submit any error and bugfixes
   //       via GitHub issues.
   private static SwerveType swerveType = SwerveType.PHOENIX6; // PHOENIX6, YAGSL
-  private static CTREPro phoenixPro = CTREPro.UNLICENSED; // LICENSED, UNLICENSED
-  private static AutoType autoType = AutoType.MANUAL; // MANUAL, PATHPLANNER, CHOREO
-  private static VisionType visionType = VisionType.NONE; // PHOTON, LIMELIGHT, NONE
+  private static CTREPro phoenixPro = CTREPro.LICENSED; // LICENSED, UNLICENSED
+  private static AutoType autoType = AutoType.PATHPLANNER; // MANUAL, PATHPLANNER, CHOREO
+  private static VisionType visionType = VisionType.PHOTON; // PHOTON, LIMELIGHT, NONE
 
   /** Enumerate the robot types (name your robots here) */
   public static enum RobotType {
@@ -94,7 +94,7 @@ public final class Constants {
   public static boolean disableHAL = false;
 
   public static void disableHAL() {
-    disableHAL = true;
+    disableHAL = false;
   }
 
   /***************************************************************************/
@@ -121,7 +121,7 @@ public final class Constants {
 
     // Maximum torque applied by wheel
     // Kraken X60 stall torque ~7.09 Nm; MK4i L3 gear ratio 6.12:1
-    public static final double kMaxWheelTorque = 43.4; // Nm
+    // public static final double kMaxWheelTorque = 10; // Nm
 
     // Insert here the orientation (CCW == +) of the Rio and IMU from the robot
     // An angle of "0." means the x-y-z markings on the device match the robot's intrinsic reference
@@ -433,12 +433,20 @@ public final class Constants {
     // Robot to camera transforms
     // (ONLY USED FOR PHOTONVISION -- Limelight: configure in web UI instead)
     // Example Cameras are mounted in the back corners, 18" up from the floor, facing sideways
+
+    /*private static final LoggedTunableNumber x = new LoggedTunableNumber("x", 0.0);
+    private static final LoggedTunableNumber y = new LoggedTunableNumber("y", 0.0);
+    private static final LoggedTunableNumber z = new LoggedTunableNumber("z", 0.0);
+    private static final LoggedTunableNumber roll = new LoggedTunableNumber("roll", 0.0);
+    private static final LoggedTunableNumber pitch = new LoggedTunableNumber("pitch", 0.0);
+    private static final LoggedTunableNumber yaw = new LoggedTunableNumber("yaw", Math.PI / 2);*/
+
     public static Transform3d robotToCamera0 =
         new Transform3d(
-            Inches.of(-13.0),
-            Inches.of(13.0),
-            Inches.of(12.0),
-            new Rotation3d(0.0, 0.0, Math.PI / 2));
+            Inches.of(14.85),
+            Inches.of(4.5),
+            Inches.of(25),
+            new Rotation3d(Math.toRadians(0.0), Math.toRadians(-16.9), 0.0));
     public static Transform3d robotToCamera1 =
         new Transform3d(
             Inches.of(-13.0),
